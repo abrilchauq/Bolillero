@@ -6,7 +6,7 @@ classDiagram
         +cantidad: int 
         +nroBolillas: List int
         +Jugadas: List
-        +JugadaAcertada:
+        +JugarNVeces: 
         +SacarBolilla() int
     }
 
