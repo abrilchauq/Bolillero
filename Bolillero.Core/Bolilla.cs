@@ -16,7 +16,7 @@ public class Bolilla
     {
         for (int i = 0; i < Azar.Count; i++)
         {
-
+            
         }
         return true;
     }
