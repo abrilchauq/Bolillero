@@ -1,23 +1,47 @@
 ﻿namespace Bolillero.Core;
 public class Bolilla
 {
-    public int cantidad { get; set; }
     public List<int> Bolillas { get; set; }
+    public List<int> Afuera { get; set; }
     public IAzar Azar { get; set; }
 
-    public Bolilla(int cantidad, int Bolillas, IAzar azar)
+    public Bolilla( int Bolillas, IAzar azar)
     {
-        this.cantidad = cantidad;
         this.Bolillas = new List<int>();
+        this.Afuera = new List<int>();
         this.Azar = azar;
     }
 
-    public bool Jugar(List<int> Azar)
+    public bool Jugar(List<int> jugada)
     {
-        for (int i = 0; i < Azar.Count; i++)
+        for (int i = 0; i < jugada.Count; i++)
+        {
+            var bolilla = SacarBolilla();
+            if (bolilla != jugada[i])
+            return false;
+        }
+        return true;
+    }
+
+    public int SacarBolilla()
+    {
+        var bolilla = Azar.indiceAleatorio(Bolillas);
+        return bolilla;
+    }
+
+    public void MeterBolilla()
+    {
+        Bolillas.AddRange(Afuera);
+        Afuera.Clear();
+    }
+
+    public void JugarNVeces(List<int> jugada, int cantidad)
+    {
+
+        var ganadas = 0;
+        for (int i = 0; i < cantidad; i++)
         {
             
         }
-        return true;
     }
 }
