@@ -35,13 +35,17 @@ public class Bolilla
         Afuera.Clear();
     }
 
-    public void JugarNVeces(List<int> jugada, int cantidad)
+    public int JugarNVeces(List<int> jugada, int cantidad)
     {
-
-        var ganadas = 0;
+        int ganadas = 0;
         for (int i = 0; i < cantidad; i++)
         {
-            
+            if(Jugar(jugada))
+            {
+                ganadas++;
+            }
         }
+        return ganadas;
     }
 }
+
