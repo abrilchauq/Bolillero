@@ -5,11 +5,12 @@ public class Bolilla
     public List<int> Afuera { get; set; }
     public IAzar Azar { get; set; }
 
-    public Bolilla( int Bolillas, IAzar azar)
+    public Bolilla(int Bolillas, IAzar azar)
     {
         this.Bolillas = new List<int>();
         this.Afuera = new List<int>();
         this.Azar = azar;
+        CrearBolilla(Bolillas);
     }
 
     public bool Jugar(List<int> jugada)
@@ -23,9 +24,17 @@ public class Bolilla
         return true;
     }
 
+    public void CrearBolilla(int cantidad)
+    {
+        for (int i = 0; i <= cantidad; i++)
+        Bolillas.Add(i);
+    }
+
     public int SacarBolilla()
     {
         var bolilla = Azar.indiceAleatorio(Bolillas);
+        Bolillas.Remove(bolilla);
+        Afuera.Add(bolilla);
         return bolilla;
     }
 
