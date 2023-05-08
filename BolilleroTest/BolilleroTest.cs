@@ -15,4 +15,7 @@ public class BolilleroTest
         Assert.Equal(9, bolilla.);
         Assert.Equal(1, bolilla);
     }
+
+    [Fact]
+    public void 
 }
