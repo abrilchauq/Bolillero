@@ -19,15 +19,15 @@ public class Bolilla
         {
             var bolilla = SacarBolilla();
             if (bolilla != jugada[i])
-            return false;
+                return false;
         }
         return true;
     }
 
     public void CrearBolilla(int cantidad)
     {
-        for (int i = 0; i <= cantidad; i++)
-        Bolillas.Add(i);
+        for (int i = 0; i < cantidad; i++)
+            Bolillas.Add(i);
     }
 
     public int SacarBolilla()
@@ -38,7 +38,7 @@ public class Bolilla
         return bolilla;
     }
 
-    public void MeterBolilla()
+    public void MeterBolillas()
     {
         Bolillas.AddRange(Afuera);
         Afuera.Clear();
@@ -49,7 +49,7 @@ public class Bolilla
         int ganadas = 0;
         for (int i = 0; i < cantidad; i++)
         {
-            if(Jugar(jugada))
+            if (Jugar(jugada))
             {
                 ganadas++;
             }
