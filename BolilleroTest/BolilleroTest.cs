@@ -29,12 +29,21 @@ public class BolilleroTest
     [Fact]
     public void JugarGana()
     {
-        // Assert.True();
+        var victoria = bolillero.Jugar(jugada: new List<int> {0, 1, 2, 3});
+        Assert.True(victoria);
     }
 
     [Fact]
     public void JugarPierde()
     {
-        // Assert.False();
+        var perdida = bolillero.Jugar(jugada: new List<int> {4, 2, 1});
+        Assert.False(perdida);
+    }
+
+    [Fact]
+    public void GanarNveces()
+    {
+        var ganada = bolillero.JugarNVeces(jugada: new List<int> {0, 1}, cantidad: 1);
+        Assert.Equal(1, ganada);
     }
 }
