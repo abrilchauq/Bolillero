@@ -7,8 +7,9 @@ classDiagram
         +Afuera List~int~ int 
         +Jugar (List~int~) bool 
         +JugarNVeces (List~int~) int
-        +SacarBolilla(): int
+        +SacarBolilla()
         +MeterBolilla()
+        +CrearBolilla()
     }
 
     class IAzar{
@@ -20,8 +21,13 @@ classDiagram
         +IndiceAleatorio(List~int~): int 
     }
 
+    class ElegirPrimera{
+        +IndiceAleatorio(List~int~): int
+    }
+
 
 AzarRandom ..|> IAzar
+ElegirPrimera ..|> IAzar
 Bolillero --|> IAzar
 
 ```
