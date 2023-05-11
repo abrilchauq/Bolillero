@@ -28,6 +28,6 @@ classDiagram
 
 AzarRandom ..|> IAzar
 ElegirPrimera ..|> IAzar
-Bolillero --|> IAzar
+Bolillero --> IAzar
 
 ```
