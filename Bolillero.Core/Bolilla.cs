@@ -3,14 +3,23 @@ public class Bolilla
 {
     public List<int> Bolillas { get; set; }
     public List<int> Afuera { get; set; }
+    public List<int> Adentro { get; set; }
     public IAzar Azar { get; set; }
 
     public Bolilla(int Bolillas, IAzar azar)
     {
         this.Bolillas = new List<int>();
         this.Afuera = new List<int>();
+        this.Adentro = new List<int>();
         this.Azar = azar;
         CrearBolilla(Bolillas);
+    }
+
+    private Bolilla(Bolilla original)
+    {
+        Adentro = new List<int>(original.Adentro);
+        Afuera = new List<int>(original.Afuera);
+        Azar = original.Azar;
     }
 
     public bool Jugar(List<int> jugada)

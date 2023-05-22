@@ -5,6 +5,7 @@ classDiagram
     class Bolillero{
         +Bolillas List~int~ int
         +Afuera List~int~ int 
+        +Adentro List~int~ int
         +Jugar (List~int~) bool 
         +JugarNVeces (List~int~) int
         +SacarBolilla()
