@@ -65,4 +65,6 @@ public class Bolilla
         }
         return ganadas;
     }
+
+    public Bolilla Clonar() => new Bolilla(this);
 }
