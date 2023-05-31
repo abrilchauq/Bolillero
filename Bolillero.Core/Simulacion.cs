@@ -11,7 +11,10 @@ namespace Bolillero.Core
             for (int i = 0; i < hilos; i++)
             {
                 var clon = bolillero.Clonar();
+                tareas[i] = Task<long>.Run(() => (long)clon.JugarNVeces(jugada, simulaciones / hilos));
             }
+            Task<long>.WaitAll(tareas);
+            return tareas.Sum(t => t.Result);
         }
     }
 }
