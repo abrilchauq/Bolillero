@@ -9,6 +9,7 @@ namespace BolilleroTest
         public List<int> jugada { get; }
         public int cantidad { get; }
         private int hilos { get; }
+        private int simulaciones { get; }
 
         public SimulacionTest()
         {
@@ -17,6 +18,7 @@ namespace BolilleroTest
             this.jugada = new List<int>(){ 0 }; 
             this.cantidad = 1;
             this.hilos = 4;
+            this.simulaciones = 4; 
         }
 
         [Fact]
@@ -29,7 +31,8 @@ namespace BolilleroTest
         [Fact]
         public void simularConHilos()
         {
-            
+            var ganadas = simulacion.simularConHilos(bolillero, jugada, simulaciones, hilos);
+            Assert.Equal(hilos, ganadas); 
         }
     }
 }
