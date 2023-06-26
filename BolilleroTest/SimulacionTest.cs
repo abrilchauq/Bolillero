@@ -15,10 +15,10 @@ namespace BolilleroTest
         {
             this.bolillero = new Bolilla(10, new ElegirPrimera());
             this.simulacion = new Simulacion();
-            this.jugada = new List<int>(){ 0 }; 
+            this.jugada = new List<int>() { 0 };
             this.cantidad = 1;
             this.hilos = 4;
-            this.simulaciones = 4; 
+            this.simulaciones = 4;
         }
 
         [Fact]
@@ -32,7 +32,14 @@ namespace BolilleroTest
         public void simularConHilos()
         {
             var ganadas = simulacion.simularConHilos(bolillero, jugada, simulaciones, hilos);
-            Assert.Equal(hilos, ganadas); 
+            Assert.Equal(hilos, ganadas);
+        }
+
+        [Fact]
+        public async Task SimularConHilosAsync()
+        {
+            var ganadasAsync = await simulacion.SimularConHilosAsync(bolillero, jugada, simulaciones, hilos);
+            Assert.Equal(hilos, ganadasAsync);
         }
     }
 }

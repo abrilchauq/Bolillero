@@ -19,7 +19,14 @@ namespace Bolillero.Core
 
         public async Task<long> SimularConHilosAsync(Bolilla bolillero, List<int> jugada, int simulaciones, int hilos)
         {
-           
+            var tareasAsync = new Task<long>[hilos];
+            for (int i = 0; i < hilos; i++)
+            {
+                var clon = bolillero.Clonar();
+                tareasAsync[i] = Task<long>.Run(() => (long)clon.JugarNVeces(jugada, simulaciones / hilos));
+            }
+            await Task<long>.WhenAll(tareasAsync);
+            return tareasAsync.Sum(a => a.Result);
         }
     }
 }

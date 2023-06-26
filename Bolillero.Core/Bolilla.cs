@@ -1,18 +1,16 @@
 ﻿namespace Bolillero.Core;
 public class Bolilla
 {
-    public List<int> Bolillas { get; set; }
     public List<int> Afuera { get; set; }
     public List<int> Adentro { get; set; }
     public IAzar Azar { get; set; }
 
-    public Bolilla(int Bolillas, IAzar azar)
+    public Bolilla(int Adentro, IAzar azar)
     {
-        this.Bolillas = new List<int>();
         this.Afuera = new List<int>();
         this.Adentro = new List<int>();
         this.Azar = azar;
-        CrearBolilla(Bolillas);
+        CrearBolilla(Adentro);
     }
 
     private Bolilla(Bolilla original)
@@ -36,20 +34,20 @@ public class Bolilla
     public void CrearBolilla(int cantidad)
     {
         for (int i = 0; i < cantidad; i++)
-            Bolillas.Add(i);
+            Adentro.Add(i);
     }
 
     public int SacarBolilla()
     {
-        var bolilla = Azar.indiceAleatorio(Bolillas);
-        Bolillas.Remove(bolilla);
+        var bolilla = Azar.indiceAleatorio(Adentro);
+        Adentro.Remove(bolilla);
         Afuera.Add(bolilla);
         return bolilla;
     }
 
     public void MeterBolillas()
     {
-        Bolillas.AddRange(Afuera);
+        Adentro.AddRange(Afuera);
         Afuera.Clear();
     }
 
