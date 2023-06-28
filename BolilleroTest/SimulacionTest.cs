@@ -41,5 +41,12 @@ namespace BolilleroTest
             var ganadasAsync = await simulacion.SimularConHilosAsync(bolillero, jugada, simulaciones, hilos);
             Assert.Equal(hilos, ganadasAsync);
         }
+
+        [Fact]
+        public async Task SimularParallelAsync()
+        {
+            var ganadasParallel = await simulacion.SimularParallelAsync(bolillero, jugada, simulaciones, hilos);
+            Assert.Equal(hilos, ganadasParallel);
+        }
     }
 }
